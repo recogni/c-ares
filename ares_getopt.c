@@ -91,8 +91,12 @@ ares_getopt(int nargc, char * const nargv[], const char *ostr)
         if (!*place)
             ++optind;
         if (opterr && *ostr != ':')
+#ifndef SCORPIO
             (void)fprintf(stderr,
                 "%s: illegal option -- %c\n", __FILE__, optopt);
+#else
+            (void)printf("%s: illegal option -- %c\n", __FILE__, optopt);
+#endif
         return (BADCH);
     }
     if (*++oli != ':') {                      /* don't need argument */

@@ -275,6 +275,7 @@ static void nameinfo_callback(void *arg, int status, int timeouts,
 static char *lookup_service(unsigned short port, int flags,
                             char *buf, size_t buflen)
 {
+#ifndef SCORPIO
   const char *proto;
   struct servent *sep;
 #ifdef HAVE_GETSERVBYPORT_R
@@ -347,6 +348,9 @@ static char *lookup_service(unsigned short port, int flags,
     }
   buf[0] = '\0';
   return NULL;
+#else //SCORPIO
+  return NULL;
+#endif //SCORPIO
 }
 
 #ifdef HAVE_SOCKADDR_IN6_SIN6_SCOPE_ID

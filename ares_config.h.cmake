@@ -46,7 +46,7 @@
 #define GETSERVBYPORT_R_ARGS @GETSERVBYPORT_R_ARGS@
 
 /* Define to 1 if you have AF_INET6. */
-#cmakedefine HAVE_AF_INET6
+#cmakedefine HAVE_AF_INET6 //1
 
 /* Define to 1 if you have the <arpa/inet.h> header file. */
 #cmakedefine HAVE_ARPA_INET_H
@@ -200,19 +200,23 @@
 #cmakedefine HAVE_PF_INET6
 
 /* Define to 1 if you have the recv function. */
-#cmakedefine HAVE_RECV
+//#cmakedefine HAVE_RECV
+#define HAVE_RECV
 
 /* Define to 1 if you have the recvfrom function. */
-#cmakedefine HAVE_RECVFROM
+//#cmakedefine HAVE_RECVFROM
+#define HAVE_RECVFROM
 
 /* Define to 1 if you have the send function. */
-#cmakedefine HAVE_SEND
+//#cmakedefine HAVE_SEND
+#define HAVE_SEND
 
 /* Define to 1 if you have the setsockopt function. */
 #cmakedefine HAVE_SETSOCKOPT
 
 /* Define to 1 if you have a working setsockopt SO_NONBLOCK function. */
-#cmakedefine HAVE_SETSOCKOPT_SO_NONBLOCK
+//#cmakedefine HAVE_SETSOCKOPT_SO_NONBLOCK
+#define HAVE_SETSOCKOPT_SO_NONBLOCK
 
 /* Define to 1 if you have the <signal.h> header file. */
 #cmakedefine HAVE_SIGNAL_H

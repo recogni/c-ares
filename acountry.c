@@ -87,11 +87,15 @@ static void find_country_from_cname(const char *cname, struct in_addr addr);
 
 static void Abort(const char *fmt, ...)
 {
+#ifndef SCORPIO
   va_list args;
   va_start(args, fmt);
   vfprintf(stderr, fmt, args);
   va_end(args);
   exit(1);
+#else
+  SCPU_ASSERT(99 == 98);
+#endif
 }
 
 int main(int argc, char **argv)
@@ -522,6 +526,7 @@ static const struct search_list country_list[] = {
 
 static int is_addr(char *str, char **end)
 {
+#ifndef SCORPIO
   int a0, a1, a2, a3, num, rc = 0, length = 0;
 
   num = sscanf(str,"%3d.%3d.%3d.%3d%n",&a0,&a1,&a2,&a3,&length);
@@ -533,6 +538,9 @@ static int is_addr(char *str, char **end)
       *end = str + length;
     }
   return rc;
+#else
+  return 1;
+#endif
 }
 
 /*
